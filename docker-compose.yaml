@@ -16,14 +16,14 @@ services:
     - source: mongodb
       target: /data/db
       type: volume
-    networks:
-    - roboshop
+    # networks:
+    # - roboshop
 
   catalogue:
     image: catalogue:v1
     container_name: catalogue
-    networks:
-    - roboshop
+    # networks:
+    # - roboshop
     depends_on:
     - mongodb
 
