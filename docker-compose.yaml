@@ -1,21 +1,20 @@
 networks:
   default:
     external:
-    - true
       name: roboshop
 services:
   # docker run -d --name mongodb --network=roboshop mongodb:1
   mongodb:
     image: mongodb:v1
     container_name: mongodb
-    networks:
-    - roboshop
+    # networks:
+    # - roboshop
 
   catalogue:
     image: catalogue:v1
     container_name: catalogue
-    networks:
-    - roboshop
+    # networks:
+    # - roboshop
     depends_on:
     - mongodb
 
@@ -72,4 +71,4 @@ services:
     depends_on:
     - rabbitmq
     - user
-    - cart   
+    - cart
