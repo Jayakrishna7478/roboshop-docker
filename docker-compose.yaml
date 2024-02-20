@@ -1,6 +1,6 @@
 networks:
   default:
-    external: "true"
+    external: true
       name: roboshop
 volumes:
   mongodb: #docker volume create mongodb
