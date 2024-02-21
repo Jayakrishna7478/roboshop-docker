@@ -10,7 +10,7 @@ volumes: # docker volumes created all data servers
 services:
   # docker run -d --name mongodb --network=roboshop mongodb:1
   mongodb:
-    image: mongodb:v1
+    image: mongodb:v2
     container_name: mongodb
     volumes:
     - source: mongodb
@@ -20,7 +20,7 @@ services:
     # - roboshop
 
   catalogue:
-    image: catalogue:v1
+    image: catalogue:v2
     container_name: catalogue
     # networks:
     # - roboshop
@@ -28,7 +28,7 @@ services:
     - mongodb
 
   web:
-    image: web:v1
+    image: web:v2
     container_name: web
     ports:
     - "80:80"
@@ -48,21 +48,21 @@ services:
       type: volumes
 
   user:
-    image: user:v1
+    image: user:v2
     container_name: user
     depends_on:
     - redis
     - mongodb
 
   cart:
-    image: cart:v1
+    image: cart:v2
     container_name: cart
     depends_on:
     - redis
     - catalogue
 
   mysql:
-    image: mysql:v1
+    image: mysql:v2
     container_name: mysql
     volumes:
     - source: mysql
@@ -70,7 +70,7 @@ services:
       type: volumes
 
   shipping:
-    image: shipping:v1
+    image: shipping:v2
     container_name: shipping
     depends_on:
     - mysql
@@ -88,7 +88,7 @@ services:
 
   payment:
     container_name: payment
-    image: payment:v1
+    image: payment:v2
     depends_on:
     - rabbitmq
     - user
