@@ -4,9 +4,9 @@ networks:
       name: roboshop
 volumes:
   mongodb: #docker volume create mongodb
-  redis:
-  mysql:
-  rabbitmq:
+  # redis:
+  # mysql:
+  # rabbitmq:
 services:
   # docker run -d --name mongodb--network=roboshop mongodb:1
   mongodb:
@@ -16,3 +16,8 @@ services:
     - source: mongodb
       target: /data/db
       type: volume
+
+  catalogue:
+    image: catalogue:v1
+    depends_on:
+      - mongodb
