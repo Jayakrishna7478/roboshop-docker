@@ -40,7 +40,8 @@ services:
       type: volume
 
   user:
-  image: user:v1
-  depends_on:
-  - redis
-  - redis
+    image: user:v1
+    container_name: user
+    depends_on:
+    - redis
+    - mongodb
