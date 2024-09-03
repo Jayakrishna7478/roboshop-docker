@@ -38,3 +38,9 @@ services:
     - source: redis
       target: /data
       type: volume
+
+  user:
+  image: user:v1
+  depends_on:
+  - redis
+  - redis
