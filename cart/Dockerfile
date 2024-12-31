@@ -5,7 +5,7 @@ ENV MONGO=true
 COPY package.json /opt/server/
 RUN chown roboshop:roboshop /opt/server
 USER roboshop
-COPY server.js /opt/server/
 COPY package.js /opt/server/
 RUN npm install
+COPY server.js /opt/server/
 CMD ["node", "server.js"]
